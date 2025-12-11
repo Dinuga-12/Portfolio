@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp, Phone, MapPin } from "lucide-react";
@@ -29,7 +29,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-slate-950 border-t border-white/10 pt-16 pb-8 overflow-hidden">
+    // **** CRITICAL CHANGE: Updated background color to match/complement the new dark theme ****
+    <footer className="relative bg-[#050D19] border-t border-white/10 pt-16 pb-8 overflow-hidden">
       
       {/* Background Glow Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50" />

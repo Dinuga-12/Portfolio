@@ -188,22 +188,6 @@ const About = () => {
             ))}
           </motion.div>
 
-          {/* --- BUTTON --- */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: false }}
-            transition={{ delay: 0.8 }}
-          >
-            <a
-              href="/assets/images/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 dark:bg-white text-white dark:text-black font-bold rounded-full hover:bg-cyan-600 dark:hover:bg-cyan-400 hover:scale-105 transition-all shadow-lg"
-            >
-              Download CV <Rocket size={18} />
-            </a>
-          </motion.div>
-
         </div>
 
       </div>

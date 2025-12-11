@@ -28,6 +28,9 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    // Check if personalInfo.titles is defined before accessing
+    if (!personalInfo.titles) return;
+    
     const currentTitle = personalInfo.titles[textIndex];
     const typeSpeed = isDeleting ? 40 : 80;
 
@@ -82,7 +85,7 @@ const Hero = () => {
             }}
         />
 
-        {/* 4. Bottom-Left Shadow - UPDATED: Reduced opacity from 0.8 to 0.4 */}
+        {/* 4. Bottom-Left Shadow */}
         <div 
             className="absolute bottom-[-100px] left-[-100px] w-[600px] h-[600px] blur-[100px] pointer-events-none"
             style={{ 
@@ -147,37 +150,40 @@ const Hero = () => {
           {/* Buttons Container */}
           <motion.div variants={FADE_UP} className="flex flex-wrap gap-5 justify-center lg:justify-start">
             
-            {/* 1. VIEW MY WORK BUTTON (LINK) */}
+            {/* 1. VIEW MY WORK BUTTON (LINK) - UPDATED TO CYAN/PURPLE */}
             <Link 
               to="/projects" 
-              className="relative group p-[2.5px] rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(6,182,212,0.2)]"
+              className="relative group p-[2.5px] rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(147,51,234,0.4)]"
             >
-              {/* Rotating Border Gradient (Transparent) */}
+              {/* Rotating Border Gradient (Cyan to Purple) */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#06b6d4_50%,transparent_100%)]"
+                className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#06b6d4_25%,#9333ea_50%,#06b6d4_75%,transparent_100%)]"
               />
 
-              {/* Inner Button Content */}
-              <div className="relative px-8 py-4 bg-slate-300 text-black font-bold rounded-full z-10">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              {/* Inner Button Content (White BG on hover, Cyan/Purple Gradient) */}
+              <div className="relative px-8 py-4 bg-slate-100 text-slate-900 font-bold rounded-full z-10 transition-colors">
+                {/* Cyan to Purple Gradient Fill */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                 <span className="relative z-10 flex items-center gap-2">View My Work <MousePointer2 size={18} /></span>
               </div>
             </Link>
 
-            {/* 2. DOWNLOAD CV BUTTON */}
+            {/* 2. DOWNLOAD CV BUTTON - UPDATED TO CYAN/PURPLE ACCENT */}
             <a 
               href="/assets/images/resume.pdf" 
               download
               className="relative group p-[2.5px] rounded-full overflow-hidden transition-all hover:scale-105"
             >
+              {/* Rotating Border Gradient (Slate/Cyan/Purple) */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#334155_0%,#06b6d4_50%,#334155_100%)]"
+                className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#334155_0%,#06b6d4_25%,#9333ea_75%,#334155_100%)]"
               />
 
+              {/* Inner Button Content (Dark BG, Cyan/Purple Hover Effect) */}
               <div className="relative px-8 py-4 bg-slate-900 text-slate-300 font-semibold rounded-full z-10 hover:bg-slate-800 hover:text-white transition-all flex items-center gap-2 border border-slate-700/50">
                 <span className="relative z-10 flex items-center gap-2">Download CV <Download size={18} /></span>
               </div>
